@@ -1,0 +1,44 @@
+.nav-guest {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-guest__list {
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-guest__list-item {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-guest__link {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 36px;
+  color: white;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  transition: opacity 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.nav-guest__link:hover {
+  opacity: 0.5;
+}
+
+.nav-guest__link_signin {
+  color: black;
+  width: 72px;
+  height: 36px;
+  text-align: center;
+  background-color: rgba(43, 224, 128, 1);
+  border-radius: 3px;
+}

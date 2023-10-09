@@ -1,0 +1,17 @@
+<svg width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse" height="60" width="128" y="-14" x="-85" id="filter0_d_891_3857">
+   <feGaussianBlur stdDeviation="7"/>
+  </filter>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="28" width="28" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_3" filter="url(#filter0_d_891_3857)"/>
+  <rect id="svg_5" fill="#F9F9F9" rx="13" height="26" width="26"/>
+  <path id="svg_6" fill="black" d="m14.4297,14.9678c1.3619,-0.5621 2.3203,-1.903 2.3203,-3.4678c0,-2.07107 -1.679,-3.75 -3.75,-3.75c-2.0711,0 -3.75002,1.67893 -3.75002,3.75c0,1.5647 0.95832,2.9056 2.32012,3.4677c-1.3947,0.2322 -2.67759,0.7982 -3.76187,1.6129l1.38155,1.8388c1.06132,-0.7973 2.37882,-1.2694 3.80992,-1.2694c1.4312,0 2.7487,0.4721 3.81,1.2694l1.3815,-1.8388c-1.0841,-0.8146 -2.3669,-1.3806 -3.7615,-1.6128z" clip-rule="evenodd" fill-rule="evenodd"/>
+ </g>
+</svg>

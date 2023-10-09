@@ -1,0 +1,80 @@
+.project {
+    max-width: 1140px;
+    margin: 110px auto;
+}
+
+.project__title {
+    font-weight: 400;
+    font-size: 22px;
+    line-height: normal;
+    letter-spacing: -0.8px;
+    color: black;
+    margin: 0 0 70px 0;
+    padding: 0 0 23px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+    max-width: 100%;
+}
+
+.project__description {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 36px;
+    column-gap: 40px;
+    margin: 0 0 110px 0;
+}
+
+.project__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24.2px;
+    letter-spacing: -0.8px;
+    color: black;
+    margin: 0;
+    padding: 0 0 26px 0;
+}
+
+.project__info {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.project__timeline {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: auto auto;
+    text-align: center;
+}
+
+.project__weeks {
+    display: block;
+    box-sizing: border-box;
+    height: 36px;
+    background-color: rgba(43, 224, 128, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: black;
+    margin: 0;
+    padding: 10px;
+
+}
+
+.project__weeks_frontend {
+    background-color: rgba(242, 242, 242, 1);    
+}
+
+.project__stage {
+    display: block;
+    box-sizing: border-box;
+    height: 36px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(160, 160, 160, 1);
+    margin: 0;
+    padding: 17px;
+}

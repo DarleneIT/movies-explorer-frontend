@@ -1,0 +1,52 @@
+.movie__poster {
+  width: 270px;
+  height: 151px;
+}
+
+.movie__info {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+.movie__title {
+  width: 226px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 15.73px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0 29px 0;
+}
+
+.movie__button {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  background-color: rgba(249, 249, 249, 1);
+  background-image: url("../../../images/heart_invisible.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  border-radius: 50%;
+}
+
+.movie__button-active {
+    background-image: url("../../../images/heart_red.svg");
+  }
+
+.movie__length {
+  grid-column: span 2;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13.31px;
+  color: rgba(160, 160, 160, 1);
+  border-top: 1px solid rgba(232, 232, 232, 1);
+  margin: 0;
+  padding: 6px 0 0 0;
+}

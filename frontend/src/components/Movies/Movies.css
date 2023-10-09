@@ -1,0 +1,18 @@
+.movies {
+    display: flex;
+    flex-direction: column;
+}
+
+.movies__button {
+    width: 320px;
+    height: 36px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    border-style: none;
+    border-radius: 6px;
+    background-color: rgba(249, 249, 249, 1);
+    align-self: center;
+    margin: 10px 0 100px 0;
+    padding: 0;
+}
