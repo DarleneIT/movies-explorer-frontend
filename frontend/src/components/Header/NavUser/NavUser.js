@@ -1,26 +1,73 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import "./NavUser.css";
+import { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
-import './NavUser.css';
-
-function NavUser() {
+const Navigation = () => {
+  const [isOpen, setIsOpen] = useState(true); 
   const { pathname } = useLocation();
+
+  const showBurgerMenu = () => setIsOpen(!isOpen);
+
   return (
     <nav className="nav-user">
-      <ul className="nav-user__list">
-        <li className="nav-user__item">
-          <Link to="/movies" className={`nav-user__link ${pathname !== "/" ? "" : "nav-user__link_dark"}`}>Фильмы</Link>
-        </li>
+      <button
+        className={`nav-user__menu ${
+          pathname !== "/" ? "" : "nav-user__menu_light"
+        }`}
+        type="button"
+        onClick={showBurgerMenu}
+      ></button>
 
-        <li className="nav-user__item">
-          <Link to="/saved-movies" className={`nav-user__link nav-user__link-thin ${pathname !== "/" ? "" : "nav-user__link_dark"}`}>Сохраненные фильмы</Link>
-        </li>
-      </ul>
-
-      <Link to="/profile" className={`nav-user__account ${pathname !== "/" ? "" : "nav-user__account_dark"}`}>Аккаунт</Link>
-      
+      <div className={`nav-user__box ${isOpen ? "nav-user__box_visible" : ""}`}>
+        <div className="nav-user__sidebar">
+          <div className="nav-user__list">
+            <button
+              className="nav-user__close"
+              type="button"
+              onClick={showBurgerMenu}
+            ></button>
+            <ul className="nav-user__item">
+              <li className="nav-user__item_main">
+                <Link to="/" className="nav-user__link">
+                  Главная
+                </Link>
+              </li>
+              <li>
+                <NavLink
+                  to="/movies"
+                  activeclassname
+                  className={`nav-user__link ${
+                    pathname !== "/" ? "" : "nav-user__link_light"
+                  }`}
+                >
+                  Фильмы
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/saved-movies"
+                  activeclassname
+                  className={`nav-user__link ${
+                    pathname !== "/" ? "" : "nav-user__link_light"
+                  }`}
+                >
+                  Сохранённые фильмы
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <Link
+            to="/profile"
+            className={`nav-user__account ${
+              pathname !== "/" ? "" : "nav-user__account_light"
+            }`}
+          >
+            Аккаунт
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 };
 
-export default NavUser;
+export default Navigation;

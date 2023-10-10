@@ -2,6 +2,11 @@
   max-width: 1140px;
   margin: 59px auto 20px;
   padding: 0 70px;
+  margin-top: auto;
+}
+
+.footer_saved-movies {
+  padding: 219px 0 0 0;
 }
 
 .footer__title {
@@ -62,12 +67,20 @@
   .footer {
     padding: 0 30px;
   }
+
+  .footer_saved-movies {
+    padding: 219px 0 0 0;
+  }
 }
 
 @media screen and (max-width: 560px) {
   .footer {
     margin: 79px auto 20px;
     padding: 0 10px;
+  }
+
+  .footer_saved-movies {
+    padding: 219px 0 0 0;
   }
 
   .footer__title {
