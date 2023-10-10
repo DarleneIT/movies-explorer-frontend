@@ -1,6 +1,7 @@
 .project {
     max-width: 1140px;
     margin: 110px auto;
+    padding: 0 70px;
 }
 
 .project__title {
@@ -60,7 +61,6 @@
     color: black;
     margin: 0;
     padding: 10px;
-
 }
 
 .project__weeks_frontend {
@@ -78,3 +78,84 @@
     margin: 0;
     padding: 17px;
 }
+
+@media screen and (max-width: 768px) {
+    .project {
+      max-width: 768px;
+      margin: 90px 0;
+      padding: 0 50px;
+    }
+
+    .project__info {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .project__description {
+        column-gap: 30px;
+    }
+
+    .project__subtitle {
+        padding: 0 0 22px 0;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+
+    .project {
+        margin: 70px 0;
+        padding: 0 18px;
+      }
+
+    .project__title {
+        font-size: 18px;
+        line-height: 21.78px;
+        letter-spacing: -0.7px;
+        margin: 0 0 60px 0;
+        padding: 0 0 28px 0;
+    }
+
+    .project__description {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        row-gap: 16px;
+        margin: 0 0 60px 0;
+    }
+
+    .project__subtitle {
+        font-size: 18px;
+        line-height: 21.78px;
+        letter-spacing: -0.7px;
+        padding: 0;
+    }
+
+    .project__subtitle:last-of-type {
+        grid-column: 1;
+        grid-row: 3;
+        padding: 40px 0 0 0;
+      }
+
+      .project__info {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    .project__timeline {
+        grid-template-columns: minmax(100px, 20%) 4fr;
+
+    }
+    .project__weeks {
+        font-size: 11px;
+        line-height: 13.31px;
+        padding: 10px;
+    }
+
+    .project__stage {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 13.31px;
+        padding: 10px;
+    }
+
+  }

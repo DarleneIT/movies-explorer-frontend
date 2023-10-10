@@ -1,6 +1,7 @@
 .student {
   max-width: 1140px;
   margin: 110px auto 100px;
+  padding: 0 70px;
 }
 
 .student__title {
@@ -77,6 +78,78 @@
   border-radius: 10px;
 }
 
-.portfolio__name:hover {
-  opacity: 0.3;
+@media screen and (max-width: 768px) {
+  .student {
+    margin: 90px 0;
+    padding: 0 50px;
+  }
+
+  .student__box {
+    grid-template-columns: minmax(0, 363px) 255px;
+  }
+
+  .student__name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .student__subtitle {
+    font-size: 12px;
+    line-height: 18px;
+    padding: 16px 0 0 0;
+  }
+
+  .student__description {
+    max-width: 363px;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 20px 0 87px 0;
+  }
+
+  .student__image {
+    width: 255px;
+    height: 307px;
+  }
+}
+
+@media screen and (max-width: 680px) { 
+
+}
+
+@media screen and (max-width: 560px) {
+  .student {
+    margin: 70px 0;
+    padding: 0 14px;
+  }
+
+  .student__box {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .student__name {
+    font-size: 30px;
+    line-height: 36.13px;
+    letter-spacing: -2px;
+  }
+
+  .student__subtitle {
+    font-size: 11px;
+    line-height: 16px;
+    padding: 20px 0 0 0;
+  }
+
+  .student__description {
+    font-size: 11px;
+    line-height: 16px;
+    padding: 20px 0 40px 0;
+  }
+
+  .student__image {
+    width: 292px;
+    height: 352px;
+    grid-column: 1;
+    grid-row: 1;
+  }
 }

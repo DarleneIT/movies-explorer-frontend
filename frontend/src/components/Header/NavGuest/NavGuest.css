@@ -42,3 +42,21 @@
   background-color: rgba(43, 224, 128, 1);
   border-radius: 3px;
 }
+
+@media screen and (max-width: 320px) {
+  .nav-guest__list {
+    gap: 14px;
+  }
+
+  .nav-guest__link {
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 26px;
+  }
+
+  .nav-guest__link_signin {
+    color: black;
+    width: 54px;
+    height: 26px;
+  }
+}
