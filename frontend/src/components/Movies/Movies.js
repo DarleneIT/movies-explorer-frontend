@@ -6,15 +6,13 @@ import MoviesCardList from "./MoviesCardList/MoviesCardList.js";
 
 function Movies(props) {
   return (
-    <>
-      <main className="movies">
-        <SearchForm />
-        <MoviesCardList cards={props.cards} />
-        <button className="movies__button" type="button">
-          Ещё
-        </button>
-      </main>
-    </>
+    <main className="movies">
+      <SearchForm />
+      <MoviesCardList cards={props.cards} />
+      <button className="movies__button" type="button">
+        Ещё
+      </button>
+    </main>
   );
 }
 

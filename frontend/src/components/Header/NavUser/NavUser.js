@@ -27,11 +27,13 @@ const Navigation = () => {
               onClick={showBurgerMenu}
             ></button>
             <ul className="nav-user__item">
-              <li className="nav-user__item_main">
-                <Link to="/" className="nav-user__link">
+
+              <li>
+                <Link to="/" className="nav-user__link nav-user__link_hide">
                   Главная
                 </Link>
               </li>
+
               <li>
                 <NavLink
                   to="/movies"
@@ -43,6 +45,7 @@ const Navigation = () => {
                   Фильмы
                 </NavLink>
               </li>
+
               <li>
                 <NavLink
                   to="/saved-movies"
@@ -54,6 +57,7 @@ const Navigation = () => {
                   Сохранённые фильмы
                 </NavLink>
               </li>
+
             </ul>
           </div>
           <Link

@@ -4,15 +4,13 @@ import MoviesCard from "../MoviesCard/MoviesCard.js";
 
 function MoviesCardList({ cards }) {
   return (
-    <div className="movies-card">
-      <section>
+    <section className="movies-card">
         <div className="movies-card__box">
           {cards.map((card) => (
-            <MoviesCard key={ card } />
+            <MoviesCard key={ card._id }/>
           ))}
         </div>
-      </section>
-    </div>
+    </section>
   );
 }
 

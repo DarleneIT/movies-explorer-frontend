@@ -8,9 +8,9 @@ function Promo() {
         <div className="promo__text">
           <h1 className="promo__title">Учебный проект студента факультета Веб&#8209;разработки.</h1>
           <p className="promo__info">Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
-          <Link to="#project" className="promo__button" type="button" smooth={true}>Узнать больше</Link>
+          <Link to="#project" className="promo__more-info" smooth={true}>Узнать больше</Link>
         </div>
-        <p alt="#" className="promo__image"></p>
+        <p className="promo__image"></p>
         </div>
       </section>
     );

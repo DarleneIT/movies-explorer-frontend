@@ -37,7 +37,15 @@ function App() {
           }
         />
 
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <>
+              <Header isLoggedIn={isLoggedIn} />
+              <Profile />
+            </>
+          }
+        />
 
         <Route
           path="/movies"

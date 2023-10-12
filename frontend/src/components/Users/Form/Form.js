@@ -12,13 +12,13 @@ function Form({
   isDisabledButton,
 }) {
   return (
-    <div className="form">
+    <main className="form">
 
       <Link to="/" className="logo">
         <img src={logo} alt="Логотип" />
       </Link>
 
-      <h3 className="form__title">{title}</h3>
+      <h1 className="form__title">{title}</h1>
 
       <form id="form" className="form__box" noValidate>{children}
         <button
@@ -40,7 +40,7 @@ function Form({
         </Link>
       </p>
       
-    </div>
+    </main>
   )
 }
 

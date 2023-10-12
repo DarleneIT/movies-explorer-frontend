@@ -43,7 +43,7 @@
   border-radius: 3px;
 }
 
-@media screen and (max-width: 320px) {
+/*@media screen and (max-width: 320px) {
   .nav-guest__list {
     gap: 14px;
   }
@@ -59,4 +59,4 @@
     width: 54px;
     height: 26px;
   }
-}
+}*/

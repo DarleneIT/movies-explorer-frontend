@@ -9,10 +9,12 @@ const Header = ({ isLoggedIn }) => {
   const { pathname } = useLocation();
   return (
     <header className={`header ${pathname !== "/" ? "" : "header_dark"}`}>
+      <div className="header__box">
       <Link to="/">
         <img className="header__logo" src={logo} alt="Логотип"></img>
       </Link>
       {isLoggedIn ? <NavUser /> : <NavGuest />}
+      </div>
     </header>
   );
 };

@@ -1,7 +1,6 @@
 .portfolio {
-  max-width: 1140px;
   margin: 0 auto;
-  padding: 0 70px 125px 70px;
+  padding: 0 70px 108px 70px;
 }
 
 .portfolio__title {
@@ -55,7 +54,7 @@
   opacity: 0.3;
 }
 
-.portfolio__arrow-button {
+.portfolio__arrow {
   width: 29px;
   height: 60px;
   margin: 0;
@@ -70,14 +69,14 @@
   cursor: pointer;
 }
 
-.portfolio__arrow-button:hover {
+.portfolio__arrow:hover {
   opacity: 0.3;
 }
 
 @media screen and (max-width: 768px) {
   .portfolio {
     max-width: 768px;
-    margin: 90px 0;
+    margin: 70px 0;
     padding: 0 50px;
   }
 
@@ -89,7 +88,7 @@
 
 @media screen and (max-width: 560px) {
   .portfolio {
-    margin: 350px 0 0 0;
+    margin: 395px 0 50px 0;
     padding: 0 14px;
   }
 
@@ -106,14 +105,14 @@
   .portfolio__name {
     font-size: 18px;
     line-height: 28px;
-    letter-spacing: -1px;
+    letter-spacing: -0.7px;
   }
 
-  .portfolio__arrow-button {
-    width: 18px;
+  .portfolio__arrow {
+    width: 22px;
     height: 28px;
     
-    background-position: 8px 8px;
+    background-position: 7px 8px;
     background-size: 10px 10px;
   }
 

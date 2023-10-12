@@ -47,6 +47,12 @@
   padding: 0;
 }
 
+.profile__input:focus {
+  border-radius: 20px;
+  outline: rgba(52, 86, 243, 0.5) 0.5px solid;
+  outline-offset: 10px;
+}
+
 .profile__input-line {
   width: 410px;
   margin: 16.5px auto;

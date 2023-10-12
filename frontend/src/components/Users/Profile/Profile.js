@@ -1,16 +1,10 @@
 import "./Profile.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import Header from "../../Header/Header.js";
 
 function Profile() {
-  const [isLoggedIn] = useState(true);
   return (
-    <main className="">
-      <Header isLoggedIn={isLoggedIn} />
-
-      <div className="profile">
-        <h2 className="profile__title">Привет, Виталий!</h2>
+      <main className="profile">
+        <h1 className="profile__title">Привет, Виталий!</h1>
 
         <form className="profile__form">
           <div className="profile__inputs">
@@ -45,8 +39,7 @@ function Profile() {
         <Link to="/" className="profile__link">
           Выйти из аккаунта
         </Link>
-      </div>
-    </main>
+      </main>
   );
 }
 

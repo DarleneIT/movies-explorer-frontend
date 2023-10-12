@@ -5,12 +5,10 @@ import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList.js";
 
 function SavedMovies(props) {
   return (
-    <>
-      <main className="saved-movies">
-        <SearchForm />
-        <MoviesCardList cards={props.cards} />
-      </main>
-    </>
+    <main className="saved-movies">
+      <SearchForm />
+      <MoviesCardList cards={props.cards} />
+    </main>
   );
 }
 
