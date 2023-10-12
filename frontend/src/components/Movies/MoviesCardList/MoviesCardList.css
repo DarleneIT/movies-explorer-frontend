@@ -8,7 +8,6 @@
 .movies-card__box {
   display: grid;
   grid-template-columns: repeat(auto-fit, 270px);
-  justify-content: center;
   gap: 39px 20px;
   margin: 0;
   padding: 0;
@@ -17,6 +16,12 @@
 @media screen and (min-width: 1281px) {
   .movies-card {
     max-width: 1140px;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .movies-card__box {
+    justify-content: center;
   }
 }
 
