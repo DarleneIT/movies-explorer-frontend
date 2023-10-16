@@ -37,7 +37,7 @@ const Navigation = () => {
               <li>
                 <NavLink
                   to="/movies"
-                  activeclassname
+                  activeclassname="true"
                   className={`nav-user__link ${
                     pathname !== "/" ? "" : "nav-user__link_light"
                   }`}
@@ -49,7 +49,7 @@ const Navigation = () => {
               <li>
                 <NavLink
                   to="/saved-movies"
-                  activeclassname
+                  activeclassname="true"
                   className={`nav-user__link ${
                     pathname !== "/" ? "" : "nav-user__link_light"
                   }`}

@@ -8,28 +8,36 @@ function Form({
   button,
   path,
   link,
+  onSubmit,
   registrationOption,
-  isDisabledButton,
+  isValid,
+  
+
 }) {
   return (
     <main className="form">
-
       <Link to="/" className="logo">
         <img src={logo} alt="Логотип" />
       </Link>
-
       <h1 className="form__title">{title}</h1>
 
-      <form id="form" className="form__box" noValidate>{children}
+      <form
+      
+        onSubmit={onSubmit} 
+        id="form" 
+        className="form__box" 
+        noValidate>
+
+        {children}
+
         <button
           type="submit"
-          className={
-            isDisabledButton 
-              ? "form__button form__button_inactive"
-              : "form__button"
-          }
-          disabled={isDisabledButton ? true : false}
-        >{button}
+
+        onSubmit={onSubmit} 
+          className={`"" ${isValid ? "form__button" : "form__button form__button_inactive"}`}
+          disabled={!isValid}
+        >
+          {button}
         </button>
       </form>
 
@@ -39,9 +47,8 @@ function Form({
           {link}
         </Link>
       </p>
-      
     </main>
-  )
+  );
 }
 
 export default Form;

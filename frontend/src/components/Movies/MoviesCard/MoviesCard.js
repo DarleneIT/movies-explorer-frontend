@@ -6,90 +6,61 @@ import Poster from "../../../images/33slova.jpg";
 import Poster3 from "../../../images/benksi.jpg";
 import Poster2 from "../../../images/baskia.jpg";
 
-function MoviesCard() {
-  const location = useLocation();
+//проверить
 
+function MoviesCard({ }) {
+  const location = useLocation();
+  
+  
   return (
     <>
-      <article className="movie">
+      <article className="movie" key={card.id}>
+        
         <a
-          href="https://www.kinopoisk.ru/film/1302273"
+          href={card.trailerLink}
           className="movie__link"
           target="_blank"
         >
           <img
             className="movie__poster"
-            src={Poster}
-            alt="Обложка фильма"
+            alt={card.nameRU}
+              src={
+                isSavedFilms
+                  ? card.image
+                  : `https://api.nomoreparties.co/${card.image.url}`
+              }
           />
         </a>
-        <div className="movie__info">
-        <h2 className="movie__title">33 слова о дизайне</h2>
 
-        {location.pathname === "/movies" && (
-          <button className="movie__button" type="button"></button>
-        )}
-        {location.pathname === "/saved-movies" && (
-          <button className="movie__button movie__button-active" type="button"></button>
-        )}
-        
-        <p className="movie__length">1ч42м</p>
+        <div className="movie__info">
+        <h2 className="movie__title">{card.nameRU}</h2>
+
+        {isSavedFilms ? (
+            <button
+              type="button"
+              className="movie__button"
+              onClick={onDelete}
+            >
+              <img
+                className="movie__button-dislike"
+                src={btnRemoveMovie}
+                alt="крестик удаления карточки с фильмом"
+              />
+            </button>
+          ) : (
+            <button
+              className={movieLikeBtnClassName}
+              onClick={onCardClick}
+              type="button"
+            ></button>
+          )}
+
+        <p className="movie__length">{converterDurationMovie(card.duration)}</p>
           </div>
       </article>
 
 
-      <article className="movie">
-        <a
-          href="https://www.kinopoisk.ru/film/1302273"
-          className="movie__link"
-          target="_blank"
-        >
-          <img
-            className="movie__poster"
-            src={Poster2}
-            alt="Обложка фильма"
-          />
-        </a>
-        <div className="movie__info">
-        <h2 className="movie__title">Киноальманах «100 лет дизайна»</h2>
-
-        {location.pathname === "/movies" && (
-          <button className="movie__button movie__button-active" type="button"></button>
-        )}
-        {location.pathname === "/saved-movies" && (
-          <button className="movie__button movie__button-active" type="button"></button>
-        )}
-        
-        <p className="movie__length">1ч42м</p>
-          </div>
-      </article>
-
-      <article className="movie">
-        <a
-          href="https://www.kinopoisk.ru/film/1302273"
-          className="movie__link"
-          target="_blank"
-        >
-          <img
-            className="movie__poster"
-            src={Poster3}
-            alt="Обложка фильма"
-          />
-        </a>
-        <div className="movie__info">
-        <h2 className="movie__title">В погоне за Бенкси</h2>
-
-        {location.pathname === "/movies" && (
-          <button className="movie__button" type="button"></button>
-        )}
-        {location.pathname === "/saved-movies" && (
-          <button className="movie__button movie__button-active" type="button"></button>
-        )}
-        
-        <p className="movie__length">1ч42м</p>
-          </div>
-      </article>
-
+    
     </>
   );
 }

@@ -45,6 +45,20 @@
   cursor: pointer;
 }
 
+.movie__button-dislike {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  background-color: rgba(249, 249, 249, 1);
+  background-image: url("../../../images/dislike.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  border-radius: 50%;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+
 .movie__button:hover {
   opacity: 0.5;
   background-image: url("../../../images/heart_red.svg");

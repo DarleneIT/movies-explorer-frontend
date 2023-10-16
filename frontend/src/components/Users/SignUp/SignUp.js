@@ -1,71 +1,90 @@
-import Form from "../Form/Form";
+import React, { useState } from "react";
 
-function Register() {
+import useFormWithValidation from "../../../hooks/useForm.js";
+import Form from "../Form/Form.js";
+
+function Register({ onRegister }) {
+  const { values, handleChange, errors, isValid } = useFormWithValidation({ name: " ", email: " ", password: " " });
+
+  function onSubmit(e) {
+    e.preventDefault();
+    onRegister(values);
+  }
+
   return (
-      <Form
-        title="Добро пожаловать!"
-        button="Зарегистрироваться"
-        registrationOption="Уже зарегистрированы? "
-        link="Войти"
-        path="/signin"
-        isDisabledButton
-      >
-        <div className="form__inputs">
-          <div className="form__input-box">
-            <label className="form__input-title" for="name">
-              Имя
-            </label>
-            <input
-              className="form__input"
-              name="name"
-              type="text"
-              id="name"
-              defaultValue="Виталий"
-              placeholder="Ваше имя"
-              minLength="2"
-              maxLength="40"
-              required
-            />
-            <span className="form__error">Что-то пошло не так...</span>
-          </div>
+    <Form
+      title="Добро пожаловать!"
+      button="Зарегистрироваться"
+      registrationOption="Уже зарегистрированы? "
+      link="Войти"
+      path="/signin"
 
-          <div className="form__input-box">
-            <label className="form__input-title" for="email">
-              E-mail
-            </label>
-            <input
-              name="email"
-              className="form__input"
-              type="email"
-              id="email"
-              placeholder="Ваш e-mail"
-              defaultValue="pochta@yandex.ru"
-              required
-            />
-            <span className="form__error">Что-то пошло не так...</span>
-          </div>
+      onSubmit={onSubmit}
+      isValid={isValid}
+      
+    >
+      <div className="form__inputs">
+        <div className="form__input-box">
+          <label className="form__input-title">Имя</label>
+          <input
+            className={`form__input ${errors.name ? 'form__input form__input_error' : ''}`}
+            name="name"
+            type="text"
+            placeholder="Ваше имя"
+            minLength="2"
+            maxLength="40"
+            autoComplete="off"
 
-          <div className="form__input-box">
-            <label className="form__input-title" for="password">
-              Пароль
-            </label>
-            <input
-              name="password"
-              className="form__input form__input_error"
-              type="password"
-              id="password"
-              placeholder="Введите пароль"
-              defaultValue="*********"
-              minLength="3"
-              maxLength="10"
-              required
-            />
-            <span className="form__error form__error_active">
-              Что-то пошло не так...
-            </span>
-          </div>
+            onChange={handleChange}
+           
+            value={values.name || ""}
+
+            required
+          />
+          <span className={`form__error ${errors.name ? 'form__error form__error_active' : ''}`}>Что-то пошло не так...</span>
         </div>
-      </Form>
+
+        <div className="form__input-box">
+          <label className="form__input-title">E-mail</label>
+          <input
+            name='email'
+            className={`form__input ${errors.email ? 'form__input form__input_error' : ''}`}
+            type="email"
+            placeholder="Ваш e-mail"
+            autoComplete="off"
+
+            onChange={handleChange}
+            value={values.email || ""}
+            
+
+            required
+          />
+          <span className={`form__error ${errors.email ? 'form__error form__error_active' : ''}`}>Что-то пошло не так...</span>
+        </div>
+
+        <div className="form__input-box">
+          <label className="form__input-title">Пароль</label>
+          <input
+            name="password"
+
+            className={`form__input ${errors.password ? 'form__input form__input_error' : ''}`}
+            type="password"
+            id="password"
+            placeholder="Введите пароль"
+            minLength="3"
+            maxLength="10"
+            autoComplete="off"
+
+            onChange={handleChange}
+            value={values.password || ""}
+            
+
+            required
+          />
+          <span className={`form__error ${errors.password ? 'form__error form__error_active' : ''}`}>Что-то пошло не так...</span>
+        </div>
+      </div>
+    </Form>
   );
 }
 
