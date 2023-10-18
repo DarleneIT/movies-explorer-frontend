@@ -16,6 +16,6 @@ function Movies(props) {
       </main>
     </>
   );
-}
+};
 
 export default Movies;
