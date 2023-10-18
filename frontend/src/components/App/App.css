@@ -1,8 +1,9 @@
 .App {
-  flex: auto;
-  max-width: 100vw;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
   min-height: 100vh;
+  width: 100%;
   margin: 0 auto;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   -moz-osx-font-smoothing: grayscale;

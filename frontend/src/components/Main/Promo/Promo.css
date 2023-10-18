@@ -27,7 +27,7 @@
   font-size: 50px;
   line-height: 58px;
   margin: 0 0 36px 0;
-  padding: 0x;
+  padding: 0;
 }
 
 .promo__info {
@@ -40,7 +40,7 @@
   padding: 0;
 }
 
-.promo__button {
+.promo__more-info {
   width: 129px;
   height: 36px;
   font-weight: 500;
@@ -58,7 +58,7 @@
   cursor: pointer;
 }
 
-.promo__button:hover {
+.promo__more-info:hover {
   opacity: 0.3;
 }
 
@@ -68,7 +68,7 @@
   width: 310px;
   height: 304px;
   margin: 0;
-  padding: 0x;
+  padding: 0;
 }
 
 @media screen and (max-width: 1100px) {
@@ -85,7 +85,8 @@
 
   .promo__text {
     align-items: center;
-    width: 680px;
+    max-width: 680px;
+    width: 100%;
     text-align: center;
   }
 
@@ -95,7 +96,7 @@
     margin: 45px 0 22px 0;
   }
 
-  .promo__button {
+  .promo__more-info {
     margin: 92px 0 0 0;
   }
 }
@@ -115,6 +116,7 @@
   .promo__text {
     align-items: center;
     max-width: 300px;
+    width: 100%;
     text-align: center;
   }
 
@@ -127,7 +129,7 @@
     height: 206px;
   }
 
-  .promo__button {
+  .promo__more-info {
     margin: 80px 0 0 0;
     border: 1px solid rgba(255, 255, 255, 0.4);
 

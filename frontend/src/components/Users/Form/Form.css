@@ -35,9 +35,10 @@
   .form__inputs{
     min-height: 335px;
   }
+
   .form__input-box {
     position: relative;
-    outline: none;
+    outline: transparent;
   }
 
   .form__input-title {
@@ -51,7 +52,8 @@
   
   .form__input {
     width: 100%;
-   
+    
+    outline: transparent;
     border: none;
     border-bottom: 1px solid rgba(232, 232, 232, 1);
 
@@ -70,7 +72,7 @@
   }
 
   .form__input:focus {
-    outline: none;
+    outline: transparent;
     border-bottom: 1px solid rgba(52, 86, 243, 1);
   }
   
@@ -131,7 +133,6 @@
   .form__link:hover {
     opacity: 0.5;
   }
-  
 
   .form__error {
     opacity: 0;
