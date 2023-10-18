@@ -1,0 +1,10 @@
+.search__error {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 13px;
+    min-height: 12.1px;
+    margin: 0;
+    padding: 0;
+}

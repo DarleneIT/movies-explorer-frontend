@@ -5,27 +5,3 @@
   display: grid;
 }
 
-.movies__button {
-  width: 320px;
-  height: 36px;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15px;
-  border-style: none;
-  border-radius: 6px;
-  background-color: rgba(249, 249, 249, 1);
-  margin: 10px auto 100px auto;
-  padding: 0;
-}
-
-@media screen and (max-width: 768px) {
-  .movies__button {
-    margin: 10px auto 80px auto;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .movies__button {
-    width: 240px;
-  }
-}

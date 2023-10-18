@@ -1,25 +1,7 @@
-//Доработать
-const EmailRegex = "^\\S+@\\S+\\.\\S+$"
-const MaxScreen = 1280
-const MediumScreen = 1024
-const SmallScreen = 650
-const InitMoreMaxScreen = 16
-const InitLessMaxScreen = 12
-const InitMediumScreen = 8
-const InitSmallScreen = 5
-const StepMaxScreen = 4
-const StepMediumScreen = 3
-const StepSmallScreen = 2
+const EMAIL_PATTERN = "[a-zA-Z0-9_.]+@[a-zA-Z0-9_]+\\.[a-z]{2,}"
+const NAME_PATTERN = "^[а-яА-ЯёЁa-zA-Z]+$"
+
 export {
-  EmailRegex,
-  MaxScreen,
-  MediumScreen,
-  SmallScreen,
-  InitMoreMaxScreen,
-  InitLessMaxScreen,
-  InitMediumScreen,
-  InitSmallScreen,
-  StepMaxScreen,
-  StepMediumScreen,
-  StepSmallScreen
+  EMAIL_PATTERN,
+  NAME_PATTERN,
 }

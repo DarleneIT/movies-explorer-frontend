@@ -119,6 +119,23 @@ input:checked + .search__slider:before {
   cursor: default;
 }
 
+.search__empty {
+    opacity: 0;
+    display: block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(255, 48, 85, 1);
+    min-height: 12.1px;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.3s;
+}
+
+.search__empty_active {
+  opacity: 1;
+}
+
 @media screen and (min-width: 1281px) {
   .search {
     max-width: 1140px;

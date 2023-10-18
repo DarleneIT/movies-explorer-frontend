@@ -52,7 +52,7 @@
   
   .form__input {
     width: 100%;
-
+    
     outline: transparent;
     border: none;
     border-bottom: 1px solid rgba(232, 232, 232, 1);

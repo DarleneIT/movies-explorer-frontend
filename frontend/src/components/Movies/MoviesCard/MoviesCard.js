@@ -2,65 +2,70 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 import "./MoviesCard.css";
-import Poster from "../../../images/33slova.jpg";
-import Poster3 from "../../../images/benksi.jpg";
-import Poster2 from "../../../images/baskia.jpg";
 
-//проверить
+function MoviesCard({
+  card,
+  saved,
+  isSavedFilms,
+  savedMovies,
+  onLike,
+  onDislike,
+}) {
+  const { pathname } = useLocation();
 
-function MoviesCard({ }) {
-  const location = useLocation();
-  
-  
+  function onCardLike() {
+    if (saved) {
+      onDislike(savedMovies.filter((item) => item.movieId === card.id)[0]);
+    } else {
+      onLike(card);
+    }
+  }
+
+  function onCardDislike() {
+    onDislike(card);
+  }
+
+  function convertMovieDuration(duration) {
+    const minutes = duration % 60;
+    const hours = Math.floor(duration / 60);
+    return `${hours}ч${minutes}м`;
+  }
+
   return (
     <>
       <article className="movie" key={card.id}>
-        
-        <a
-          href={card.trailerLink}
-          className="movie__link"
-          target="_blank"
-        >
+        <a href={card.trailerLink} className="movie__link" target="_blank">
           <img
             className="movie__poster"
-            alt={card.nameRU}
-              src={
-                isSavedFilms
-                  ? card.image
-                  : `https://api.nomoreparties.co/${card.image.url}`
-              }
+            src={
+              isSavedFilms
+                ? card.image
+                : `https://api.nomoreparties.co/${card.image.url}`
+            }
+            alt={card.name}
           />
         </a>
 
         <div className="movie__info">
-        <h2 className="movie__title">{card.nameRU}</h2>
+          <h2 className="movie__title">{card.nameRU}</h2>
 
-        {isSavedFilms ? (
+          {pathname === "/movies" ? (
             <button
+              className={`movie__button ${saved ? "movie__button-active" : ""}`}
               type="button"
-              className="movie__button"
-              onClick={onDelete}
-            >
-              <img
-                className="movie__button-dislike"
-                src={btnRemoveMovie}
-                alt="крестик удаления карточки с фильмом"
-              />
-            </button>
+              onClick={onCardLike}
+            ></button>
           ) : (
             <button
-              className={movieLikeBtnClassName}
-              onClick={onCardClick}
+              className="movie__button-dislike"
               type="button"
+              onClick={onCardDislike}
             ></button>
           )}
 
-        <p className="movie__length">{converterDurationMovie(card.duration)}</p>
-          </div>
+          <p className="movie__length">{convertMovieDuration(card.duration)}</p>
+        </div>
       </article>
-
-
-    
     </>
   );
 }

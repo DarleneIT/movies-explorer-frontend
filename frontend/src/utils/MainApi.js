@@ -5,80 +5,111 @@ class ApiMain {
 
   _checkResponse(res) {
     if (res.ok) {
-      return Promise.resolve(res.json())
+      return Promise.resolve(res.json());
     }
     return Promise.reject(`Ошибка ${res.status}`);
   }
 
+  _request(path, options) {
+    return fetch(`${this._url}${path}`, options).then(this._checkResponse);
+  }
+
   //Регистрация и авторизация
-  _request(path, method, data) {
-    let body = data;
-    if (method === "POST" && data) {
-      body = JSON.stringify(data);
-    }
-    return fetch(this._url + path, {
-      method,
+  registration({ name, email, password }) {
+    return this._request("/signup", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body,
-    }).then(this._checkResponse);
-  }
-
-  registration({ name, email, password }) {
-    return this._request(`/signup`, "POST", { name, email, password });
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+      }),
+    });
   }
 
   authorization({ email, password }) {
-    return this._request(`/signin`, "POST", { email, password });
-  }
-
-  //Получение данных на странице
-  checkToken(jwt) {
-    return fetch(`${this._url}/users/me`, {
-      method: "GET",
+    return this._request("/signin", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
-        'Accept': 'application/json',
-        authorization: `Bearer ${jwt}`,
       },
-    }).then(this._checkResponse);
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
   }
 
-
-  async getUserInfo() {
-    const response = await fetch(`${this._url}/users/me`, {
-      method: "GET",
+  //Получение данных пользователя
+  getUser(token) {
+    return this._request("/users/me", {
       headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        authorization: `Bearer ${token}`,
       },
-    })
-    return this._checkResponse(response)
+    });
   }
 
-
-  //Редактирование данных пользователя
-  async setUserInfo(data) {
-    const response = await fetch(`${this._url}/users/me`, {
+  //Редактирование данных пользователя (проверить)
+  editUserInfo(name, email, token) {
+    return this._request('/users/me', {
       method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+      }),
+    });
+  }
+
+  //Получение фильмов
+  getMovies(token) {
+    return this._request("/movies", {
+      headers: {
+        authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+  //Добавление и удаление фильмов
+  likeMovie(card) {
+    return this._request("/movies", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${localStorage.getItem("jwt")}`,
       },
       body: JSON.stringify({
-        name: data.name,
-        about: data.about,
+        country: card.country,
+        description: card.description,
+        director: card.director,
+        duration: card.duration,
+        image: `https://api.nomoreparties.co${card.image.url}`,
+        movieId: card.id,
+        nameEN: card.nameEN,
+        nameRU: card.nameRU,
+        thumbnail: `https://api.nomoreparties.co${card.image.formats.thumbnail.url}`,
+        trailerLink: card.trailerLink,
+        year: card.year,
       }),
-    })
-    return this._checkResponse(response)
+    });
   }
 
+  dislikeMovie(cardId) {
+    return this._request(`/movies/${cardId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      },
+    });
+  }
 }
-
-
 
 export const apiMain = new ApiMain({
   url: "http://localhost:3000",
-  //url: "https://api.mesto.darlene.nomoredomainsicu.ru",
+  //url: "https://movies.nomoredomainsrocks.ru",
 });
