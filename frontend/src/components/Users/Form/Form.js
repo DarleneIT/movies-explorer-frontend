@@ -13,23 +13,24 @@ function Form({
 }) {
   return (
     <div className="form">
-
       <Link to="/" className="logo">
         <img src={logo} alt="Логотип" />
       </Link>
 
       <h3 className="form__title">{title}</h3>
 
-      <form id="form" className="form__box" noValidate>{children}
+      <form id="form" className="form__box" noValidate>
+        {children}
         <button
           type="submit"
           className={
-            isDisabledButton 
+            isDisabledButton
               ? "form__button form__button_inactive"
               : "form__button"
-          }
+          } 
           disabled={isDisabledButton ? true : false}
-        >{button}
+        >
+          {button}
         </button>
       </form>
 
@@ -39,9 +40,8 @@ function Form({
           {link}
         </Link>
       </p>
-      
     </div>
-  )
+  );
 }
 
 export default Form;
