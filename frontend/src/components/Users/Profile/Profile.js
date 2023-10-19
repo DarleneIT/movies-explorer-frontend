@@ -81,7 +81,7 @@ function Profile({ isLoggedIn, onEditInfo, logOut }) {
                 }`}
               >
                 Допустимы только латиница или кириллица. Введите не менее 2х
-                символов
+                символов без пробелов
               </span>
             </div>
           </div>

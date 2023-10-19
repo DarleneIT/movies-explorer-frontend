@@ -48,7 +48,7 @@ function Register({ onRegister }) {
               errors.name ? "form__error form__error_active" : ""
             }`}
           >
-            Что-то пошло не так...
+            Допустимы только латиница или кириллица. Введите не менее 2х символов без пробелов.
           </span>
         </div>
 
@@ -72,7 +72,7 @@ function Register({ onRegister }) {
               errors.email ? "form__error form__error_active" : ""
             }`}
           >
-            Что-то пошло не так...
+            Email не соответствует шаблону abc123@abc.com
           </span>
         </div>
 
@@ -98,7 +98,7 @@ function Register({ onRegister }) {
               errors.password ? "form__error form__error_active" : ""
             }`}
           >
-            Что-то пошло не так...
+            Введите не менее 3-х символов
           </span>
         </div>
       </div>
