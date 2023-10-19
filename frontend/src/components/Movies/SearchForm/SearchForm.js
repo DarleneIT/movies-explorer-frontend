@@ -22,7 +22,6 @@ function SearchForm({ onShortMovies, isShortMovies, searchMovies }) {
     e.preventDefault();
     if (result.trim().length === 0) {
       setIsSearchError(true);
-      console.log("Здесь ошибка");
     } else {
       setIsSearchError(false);
       searchMovies(result);
@@ -48,7 +47,7 @@ function SearchForm({ onShortMovies, isShortMovies, searchMovies }) {
 
           <span
             className={`search__empty ${
-              isSearchingError ? "search__empty search__empty_active" : ""
+              isSearchingError ? "search__empty search__empty_active" : "search__tumbler-title"
             }`}
           >
             Введите ключевое слово для поиска

@@ -1,9 +1,10 @@
 import React from "react";
 import Form from "../Form/Form.js";
+import Preloader from "../../Preloader/Preloader.js";
 import useFormWithValidation from "../../../hooks/useForm.js";
 import { EMAIL_PATTERN } from "../../../utils/constants.js";
 
-function Login({ onLogin }) {
+function Login({ onLogin, isLoading }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function handleSubmit(e) {
@@ -22,6 +23,7 @@ function Login({ onLogin }) {
       isValid={isValid}
     >
       <div className="form__inputs">
+        {isLoading && <Preloader />}
         <div className="form__input-box">
           <label className="form__input-title">E-mail</label>
           <input

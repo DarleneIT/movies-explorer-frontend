@@ -1,9 +1,10 @@
 import React from "react";
 import Form from "../Form/Form.js";
+import Preloader from "../../Preloader/Preloader.js";
 import useFormWithValidation from "../../../hooks/useForm.js";
 import { EMAIL_PATTERN, NAME_PATTERN } from "../../../utils/constants.js";
 
-function Register({ onRegister }) {
+function Register({ onRegister, isLoading }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function onSubmit(e) {
@@ -26,6 +27,7 @@ function Register({ onRegister }) {
       isValid={isValid}
     >
       <div className="form__inputs">
+      {isLoading && <Preloader />}
         <div className="form__input-box">
           <label className="form__input-title">Имя</label>
           <input

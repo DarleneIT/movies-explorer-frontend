@@ -29,6 +29,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
@@ -105,7 +106,8 @@ function App() {
       })
       .catch((err) => {
         setNotification(true);
-        setNotificationTitle('Упс! Что-то пошло не так!');
+        setNotificationTitle('Упс! Вероятно, этот e-mail занят!');
+        navigate("/signup");
         setIsSuccess(false);
         console.error(`Ошибка регистрации ${err}`)
       })
@@ -115,6 +117,7 @@ function App() {
     return apiMain
       .authorization({ email, password })
       .then((res) => {
+        setIsLoading(true);
         setIsSuccess(true);
         setNotification(true);
         setNotificationTitle('Отлично! У вас получилось войти!');
@@ -124,10 +127,13 @@ function App() {
       })
       .catch((err) => {
         setNotification(true);
-        setNotificationTitle('Ох! Что-то пошло не так!');
+        setNotificationTitle('Неправильные почта и/или пароль!');
         setIsSuccess(false);
         console.error(`Ошибка авторизации ${err}`)
       })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }
 
   function handleEditInfo(name, email) {
@@ -141,7 +147,7 @@ function App() {
       })
       .catch((err) => {
         setNotification(true);
-        setNotificationTitle('Ой-ой! Что-то пошло не так!');
+        setNotificationTitle('Возможно, этот е-mail занят!');
         setIsSuccess(false);
         console.error(`Ошибка редактирования данных ${err}`);
       });
@@ -195,7 +201,10 @@ function App() {
                     isLoggedIn ? (
                       <Navigate to="/movies" replace />
                     ) : (
-                      <SignIn onLogin={handleLogin} />
+                      <SignIn 
+                        onLogin={handleLogin}
+                        isLoading={isLoading}
+                      />
                     )
                   }
                 />
@@ -208,6 +217,7 @@ function App() {
                     ) : (
                       <SignUp
                         onRegister={handleRegister}
+                        isLoading={isLoading}
                       />
                     )
                   }

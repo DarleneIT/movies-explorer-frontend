@@ -11,7 +11,8 @@ class ApiMain {
   }
 
   _request(path, options) {
-    return fetch(`${this._url}${path}`, options).then(this._checkResponse);
+    return fetch(`${this._url}${path}`, options)
+    .then(this._checkResponse)
   }
 
   //Регистрация и авторизация
@@ -51,7 +52,7 @@ class ApiMain {
     });
   }
 
-  //Редактирование данных пользователя (проверить)
+  //Редактирование данных пользователя
   editUserInfo(name, email, token) {
     return this._request('/users/me', {
       method: "PATCH",

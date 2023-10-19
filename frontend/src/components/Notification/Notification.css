@@ -36,6 +36,8 @@
   line-height: 10px;
   text-align: center;
   letter-spacing: 0.2px;
+  max-width: 300px;
+  width: 100%;
 }
 
 .popup__close {
