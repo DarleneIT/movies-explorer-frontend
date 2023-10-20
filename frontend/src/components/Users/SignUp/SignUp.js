@@ -4,7 +4,7 @@ import Preloader from "../../Preloader/Preloader.js";
 import useFormWithValidation from "../../../hooks/useForm.js";
 import { EMAIL_PATTERN, NAME_PATTERN } from "../../../utils/constants.js";
 
-function Register({ onRegister, isLoading }) {
+function Register({ onRegister }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function onSubmit(e) {
@@ -27,7 +27,6 @@ function Register({ onRegister, isLoading }) {
       isValid={isValid}
     >
       <div className="form__inputs">
-      {isLoading && <Preloader />}
         <div className="form__input-box">
           <label className="form__input-title">Имя</label>
           <input

@@ -29,7 +29,6 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
@@ -117,7 +116,6 @@ function App() {
     return apiMain
       .authorization({ email, password })
       .then((res) => {
-        setIsLoading(true);
         setIsSuccess(true);
         setNotification(true);
         setNotificationTitle('Отлично! У вас получилось войти!');
@@ -131,9 +129,6 @@ function App() {
         setIsSuccess(false);
         console.error(`Ошибка авторизации ${err}`)
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
   }
 
   function handleEditInfo(name, email) {
@@ -147,7 +142,7 @@ function App() {
       })
       .catch((err) => {
         setNotification(true);
-        setNotificationTitle('Возможно, этот е-mail занят!');
+        setNotificationTitle('Возможно, этот е-mail занят');
         setIsSuccess(false);
         console.error(`Ошибка редактирования данных ${err}`);
       });
@@ -161,11 +156,13 @@ function App() {
   }
 
   //Открытие и закрытие попапа
-  const isOpen = isNotificate;
+  const isOpen = setTimeout(() => {
+    setNotification(false);
+}, 3000);
 
   function closePopup() {
     setNotification(false);
-  }
+  };
 
   useEffect(() => {
     function closeByKeys(e) {
@@ -180,12 +177,6 @@ function App() {
       }
     }
   }, [isOpen])
-
-  function closeByOverlay(e) {
-    if (e.target === e.currentTarget) {
-      closePopup()
-    }
-  }
 
   //Отрисовка страниц
   return (
@@ -203,7 +194,6 @@ function App() {
                     ) : (
                       <SignIn 
                         onLogin={handleLogin}
-                        isLoading={isLoading}
                       />
                     )
                   }
@@ -217,7 +207,6 @@ function App() {
                     ) : (
                       <SignUp
                         onRegister={handleRegister}
-                        isLoading={isLoading}
                       />
                     )
                   }
@@ -280,7 +269,6 @@ function App() {
             text={notificationTitle}
             isOpen={isNotificate}
             isSuccess={isSuccess}
-            onCloseOverlay={closeByOverlay}
             onClose={closePopup}
           />
         </CurrentUserContext.Provider>

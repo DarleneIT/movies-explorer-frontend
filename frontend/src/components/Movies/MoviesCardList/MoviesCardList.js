@@ -5,7 +5,19 @@ import "./MoviesCardList.css";
 
 import MoviesCard from "../MoviesCard/MoviesCard.js";
 import Preloader from "../../Preloader/Preloader.js";
-import SearchError from "../../SearchError/SearchError";
+import SearchError from "../../SearchError/SearchError.js";
+
+import {LAPTOP,
+  TABLET,
+  MOBILE,
+  FOR_LAPTOP,
+  FOR_TABLET,
+  FOR_MOBILE,
+  FOR_OTHERS,
+  MORE_FOR_LAPTOP,
+  MORE_FOR_TABLET,
+  MORE_FOR_MOBILE,
+  MORE_FOR_OTHERS } from "../../../utils/constants.js"
 
 function MoviesCardList({
   movies,
@@ -26,13 +38,16 @@ function MoviesCardList({
 
   function showCardsPortion() {
     const display = window.innerWidth;
-    if (display > 1023) {
-      setShownMovies(12);
-    } else if (display > 767) {
-      setShownMovies(8);
+    if (display > LAPTOP) {
+      setShownMovies(FOR_LAPTOP);
+    } else if (display > TABLET) {
+      setShownMovies(FOR_TABLET);
+    } else if (display > MOBILE) {
+      setShownMovies(FOR_MOBILE);
     } else {
-      setShownMovies(5);
+      setShownMovies(FOR_OTHERS);
     }
+    window.removeEventListener("resize", showCardsPortion);
   }
 
   useEffect(() => {
@@ -41,19 +56,21 @@ function MoviesCardList({
 
   function showMoreCards() {
     const display = window.innerWidth;
-    if (display > 1023) {
-      setShownMovies(shownMovies + 4);
-    } else if (display > 767) {
-      setShownMovies(shownMovies + 3);
+    if (display > LAPTOP) {
+      setShownMovies(shownMovies + MORE_FOR_LAPTOP);
+    } else if (display > TABLET) {
+      setShownMovies(shownMovies + MORE_FOR_TABLET);
+    } else if (display > MOBILE) {
+      setShownMovies(shownMovies + MORE_FOR_MOBILE);
     } else {
-      setShownMovies(shownMovies + 2);
+      setShownMovies(shownMovies + MORE_FOR_OTHERS);
     }
   }
 
   useEffect(() => {
     setTimeout(() => {
       window.addEventListener("resize", showCardsPortion);
-    }, 500);
+    }, 500)
   });
 
   return (
@@ -61,8 +78,9 @@ function MoviesCardList({
       {isLoading && <Preloader />}
 
       {isEmptyList && !isLoading && (
-        <SearchError errorText={"Ничего не найдено"} />
+        <SearchError errorText={"Ничего не найдено"}/>
       )}
+
       {isError && !isLoading && (
         <SearchError
           errorText={
@@ -74,7 +92,6 @@ function MoviesCardList({
       {!isLoading && !isError && !isEmptyList && (
         <>
           {pathname === "/saved-movies" ? (
-            <>
               <div className="movies-card__box">
                 {movies.map((card) => (
                   <MoviesCard
@@ -88,7 +105,6 @@ function MoviesCardList({
                   />
                 ))}
               </div>
-            </>
           ) : (
             <>
               <div className="movies-card__box">

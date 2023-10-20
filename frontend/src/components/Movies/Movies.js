@@ -10,8 +10,9 @@ import Footer from "../Footer/Footer.jsx";
 //Стили
 import "./Movies.css";
 
-//Апи
+//Апи и константы
 import moviesApi from "../../utils/MoviesApi.js";
+import { SHORT_FILM } from "../../utils/constants.js"
 
 function Movies({ isLoggedIn, savedMovies, onLike, onDislike }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +35,7 @@ function Movies({ isLoggedIn, savedMovies, onLike, onDislike }) {
   }, []);
 
 function counterMovieDuration(movies) {
-    return movies.filter((movie) => movie.duration < 40);
+    return movies.filter((movie) => movie.duration < SHORT_FILM);
   }
 
   useEffect(() => {

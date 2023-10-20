@@ -10,16 +10,17 @@ import Footer from "../Footer/Footer.jsx";
 //Стили
 import "./SavedMovies.css";
 
+//Константы
+import { SHORT_FILM } from "../../utils/constants.js"
+
 function SavedMovies({ isLoggedIn, savedMovies, onDislike }) {
   const [searchList, setSearchList] = useState("");
   const [filteredMovies, setFilteredMovies] = useState(savedMovies);
   const [isShortMovies, setIsShortMovies] = useState(false);
   const [isEmptyList, setEmptyList] = useState(false);
 
-  //из полезного
-
   function counterDurationMovie(movies) {
-    return movies.filter((movie) => movie.duration < 40);
+    return movies.filter((movie) => movie.duration < SHORT_FILM);
   }
 
   function filterMovies(movies, result) {
