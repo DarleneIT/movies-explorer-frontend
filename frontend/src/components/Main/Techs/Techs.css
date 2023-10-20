@@ -109,13 +109,13 @@
   .techs__subtitle {
     font-size: 30px;
     line-height: 36.31px;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
   }
 
   .techs__description {
     font-size: 11px;
     line-height: 16px;
-    letter-spacing: -0.6px;
+    letter-spacing: -0.5px;
     margin: 24px auto 50px;
   }
 

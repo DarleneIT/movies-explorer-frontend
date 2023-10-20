@@ -1,44 +1,85 @@
 .movies-card {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 70px 0 50px 0;
-    display: flex;
-    flex-direction: column;
+  max-width: calc(100vw - 140px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px 0 48px;
 }
 
 .movies-card__box {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 39px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 270px);
+  gap: 39px 20px;
+  margin: 0;
+  padding: 0;
 }
 
-@media screen and (max-width: 1150px) {
-
-    .movies-card__box {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-
+.movies-card__button-box {
+  display: flex;
 }
 
-@media screen and (max-width: 870px) {
-    .movies-card {
-        max-width: 708px;
-        padding: 70px 30px 0 30px;
-    }
+.movies-card__button {
+  width: 320px;
+  height: 36px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  border-style: none;
+  border-radius: 6px;
+  background-color: rgba(249, 249, 249, 1);
+  margin: 50px auto 80px auto;
+  padding: 0;
+  cursor: pointer;
+}
 
-    .movies-card__box {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.movies-card__button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 1281px) {
+  .movies-card {
+    max-width: 1140px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .movies-card__box {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 955px) {
+  .movies-card__box {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies-card {
+    max-width: calc(100vw - 60px);
+    padding: 83px 0 48px;
+  }
+
+  .movies-card__button {
+    margin: 10px auto 80px auto;
+  }
 }
 
 @media screen and (max-width: 520px) {
-    .movies-card {
-        padding: 40px 10px 0 10px;
-    }
-
-    .movies-card__box {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  .movies-card {
+    max-width: calc(100vw - 28px);
   }
+
+  .movies-card__box {
+    grid-template-columns: repeat(auto-fit, 300px);
+  }
+
+  .movies-card__button {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .movies-card {
+    max-width: calc(100vw - 20px);
+  }
+}

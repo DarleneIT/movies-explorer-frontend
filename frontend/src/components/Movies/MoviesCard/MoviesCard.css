@@ -1,6 +1,13 @@
 .movie__poster {
   width: 270px;
   height: 151px;
+  transition: 0.4s linear;
+}
+
+.movie__poster:hover {
+  outline: black solid .3px;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .movie__info {
@@ -34,11 +41,42 @@
   background-position: center;
   border-style: none;
   border-radius: 50%;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.movie__button:hover {
+  opacity: 0.5;
+  background-image: url("../../../images/heart_red.svg");
+}
+.movie__button-dislike {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  background-color: rgba(249, 249, 249, 1);
+  background-image: url("../../../images/dislike.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  border-radius: 50%;
+  transition: 0.4s ease-in-out;
+  cursor: pointer;
+}
+ 
+.movie__button-dislike:hover {
+  opacity: 0.5;
+  transform: rotate(180deg);
+  cursor: pointer;
 }
 
 .movie__button-active {
-    background-image: url("../../../images/heart_red.svg");
-  }
+  background-image: url("../../../images/heart_red.svg");
+  transition: 0.4s ease-in-out;
+}
+
+.movie__button-active:hover {
+  opacity: 0.3;
+}
 
 .movie__length {
   grid-column: span 2;
@@ -51,22 +89,23 @@
   padding: 6px 0 0 0;
 }
 
-@media screen and (max-width: 768px) {
-  .movie__poster {
-    max-width: 339px;
-    max-height: 190px;
-  }
-}
-
 @media screen and (max-width: 520px) {
   .movie__poster {
-    max-width: 300px;
-    max-height: 186px;
+    width: 300px;
+    height: 168px;
   }
 
   .movie__title {
     font-size: 12px;
     line-height: 24px;
+  }
+
+  .movie__info {
+    padding: 7px 0 0 0;
+  }
+
+  .movie__length {
+   padding: 2px 0 0 0;
   }
 
 }
