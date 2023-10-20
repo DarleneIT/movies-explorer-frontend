@@ -111,5 +111,5 @@ class ApiMain {
 }
 
 export const apiMain = new ApiMain({
-  url: "https://api.movies.nomoredomainsrocks.ru",
+  url: "https://api.onlymovies.nomoredomainsrocks.ru",
 });
